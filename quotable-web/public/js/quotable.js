@@ -25,7 +25,7 @@ var QuoteStream = React.createClass({displayName: 'QuoteStream',
 		});
 	},
 	componentDidMount: function() {
-		this.loadCommentsFromServer();
+		this.load();
 		setInterval(this.load, this.props.pollInterval);
 	},
 	getInitialState: function() {
