@@ -33,14 +33,12 @@ var QuoteStream = React.createClass({displayName: 'QuoteStream',
         }.bind(this));
 
         return (
-            React.DOM.div(null, 
+            React.DOM.div({className: "quoteStream"}, 
                 React.DOM.div({className: "quoteBookletTitle"}, 
-                        "your quotables"
+                    "your quotables"
                 ), 
-                React.DOM.div({className: "quoteStream"}, 
-                    ReactCSSTransitionGroup({transitionName: "example"}, 
-                        contentRow
-                    )
+                ReactCSSTransitionGroup({transitionName: "example"}, 
+                    contentRow
                 )
             )
         );

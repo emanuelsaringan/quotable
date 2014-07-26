@@ -33,7 +33,6 @@ var QuoteStream = React.createClass({
         }.bind(this));
 
         return (
-<<<<<<< HEAD
             <div className="quoteStream">
                 <div className="quoteBookletTitle">
                     your quotables
@@ -41,17 +40,6 @@ var QuoteStream = React.createClass({
                 <ReactCSSTransitionGroup transitionName="example">
                     {contentRow}
                 </ReactCSSTransitionGroup>
-=======
-            <div>
-                <div className="quoteBookletTitle">
-                        your quotables
-                </div>
-                <div className="quoteStream">
-                    <ReactCSSTransitionGroup transitionName="example">
-                        {contentRow}
-                    </ReactCSSTransitionGroup>
-                </div>
->>>>>>> FETCH_HEAD
             </div>
         );
     }
