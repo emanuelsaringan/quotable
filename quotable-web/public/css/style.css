@@ -2,9 +2,9 @@ body {
   background-color: rgb(250, 250, 250);
 }
 
-/*a {
-  color: #00B7FF;
-}*/
+.sideBox {
+    color: #333;
+}
 
 .booklet-label {
     font-family: 'Montserrat', sans-serif;
@@ -126,16 +126,38 @@ body {
 
 .quoteLogo {
   float: right;
-  margin-right: 50px;
-  margin-top: -30px;
-  visibility: hidden;
-  
+  margin-right: 0px;
+  margin-top: -70px;
+/*  visibility: hidden;*/
 }
 
-.quoteLogo img{
+.quoteLogo a {
+  margin-right: 50px;
+  display: inline-block;
+}
+
+.quoteLogo img { 
   height: 40px;
   width: 40px;
   position: absolute;
+  border-right: 5px solid rgb(241, 194, 71);
+  opacity: 0.4;
+}
+
+@-webkit-keyframes greenPulse {
+  from { background-color: #749a02; -webkit-box-shadow: 0 0 0 #333; }
+  to { background-color: #91bd09; -webkit-box-shadow: 0 0 20px #91bd09; }
+}
+
+.quoteLogo img:hover {
+    background-color: #91bd09;
+    -webkit-animation-name: greenPulse;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-box-shadow: 0 0 20px #91bd09;
+
+  cursor:pointer;
+  opacity: 1.0;
 }
 
 .quoteText {

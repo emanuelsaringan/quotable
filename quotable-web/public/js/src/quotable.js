@@ -75,7 +75,7 @@ var Banner = React.createClass({
     render: function() {
         if (bookletID) {
             return (
-                <img src="/img/btnShareTwitter.PNG" alt="Banner" width="100" height="100"/>
+                <img src="/img/angel.jpg" alt="Banner" width="100" height="100"/>
             );
         }
 
@@ -100,7 +100,7 @@ var QuoteTitle = React.createClass({
         return (
             <div className="quoteTitle">
                 <strong>
-                    <a href={this.props.url}>{this.props.title}</a>
+                    <a href={this.props.url} target="_blank">{this.props.title}</a>
                 </strong>
             </div>
         );
@@ -131,7 +131,12 @@ var QuoteLogo = React.createClass({
     render: function() {
         return (
             <div className="quoteLogo">
-                <img src="/img/quotableicon.png" />
+                <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/"></div>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://dev.twitter.com" data-via="your_screen_name" data-lang="en">Tweet</a>
+
+                <a href="" ><img class="moveToBooklet" src="/img/bookletTechnopreneurship.png" /></a>
+                <a href="" ><img class="moveToBooklet" src="/img/bookletDesign.png" /></a>
+                <a href="" ><img class="moveToBooklet" src="/img/bookletBusiness.png" /></a>
             </div>
         );
     }

@@ -75,7 +75,7 @@ var Banner = React.createClass({displayName: 'Banner',
     render: function() {
         if (bookletID) {
             return (
-                React.DOM.img({src: "/img/btnShareTwitter.PNG", alt: "Banner", width: "100", height: "100"})
+                React.DOM.img({src: "/img/angel.jpg", alt: "Banner", width: "100", height: "100"})
             );
         }
 
@@ -100,7 +100,7 @@ var QuoteTitle = React.createClass({displayName: 'QuoteTitle',
         return (
             React.DOM.div({className: "quoteTitle"}, 
                 React.DOM.strong(null, 
-                    React.DOM.a({href: this.props.url}, this.props.title)
+                    React.DOM.a({href: this.props.url, target: "_blank"}, this.props.title)
                 )
             )
         );
@@ -131,7 +131,12 @@ var QuoteLogo = React.createClass({displayName: 'QuoteLogo',
     render: function() {
         return (
             React.DOM.div({className: "quoteLogo"}, 
-                React.DOM.img({src: "/img/quotableicon.png"})
+                React.DOM.div({class: "fb-share-button", 'data-href': "https://developers.facebook.com/docs/plugins/"}), 
+                React.DOM.a({href: "https://twitter.com/share", class: "twitter-share-button", 'data-url': "https://dev.twitter.com", 'data-via': "your_screen_name", 'data-lang': "en"}, "Tweet"), 
+
+                React.DOM.a({href: ""}, React.DOM.img({class: "moveToBooklet", src: "/img/bookletTechnopreneurship.png"})), 
+                React.DOM.a({href: ""}, React.DOM.img({class: "moveToBooklet", src: "/img/bookletDesign.png"})), 
+                React.DOM.a({href: ""}, React.DOM.img({class: "moveToBooklet", src: "/img/bookletBusiness.png"}))
             )
         );
     }
