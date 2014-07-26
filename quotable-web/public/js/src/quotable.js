@@ -80,6 +80,7 @@ var Banner = React.createClass({
         }
 
         return (
+            <span></span>
         );
     }
 });

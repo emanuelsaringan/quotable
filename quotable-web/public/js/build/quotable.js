@@ -73,14 +73,15 @@ var QuoteBox = React.createClass({displayName: 'QuoteBox',
 
 var Banner = React.createClass({displayName: 'Banner',
     render: function() {
-        console.log(bookletID);
         if (bookletID) {
             return (
                 React.DOM.img({src: "/img/btnShareTwitter.PNG", alt: "Banner", width: "100", height: "100"})
             );
         }
 
-        return React.DOM.span(null);
+        return (
+            React.DOM.span(null)
+        );
     }
 });
 
