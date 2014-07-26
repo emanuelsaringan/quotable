@@ -30,33 +30,33 @@ app.get('/users', users.list);
 
 // Sample Data
 var quote1 = {
-    title: "Quote 1",
-    url: "www.wikipedia.org",
-    text: "The quick brown",
+    title: 'Quote 1',
+    url: 'www.wikipedia.org',
+    text: 'The quick brown',
     time: new Date()
 };
 
 var quote2 = {
-    title: "Quote 2",
-    url: "www.google.com",
-    text: "fox jumps over",
+    title: 'Quote 2',
+    url: 'www.google.com',
+    text: 'fox jumps over',
     time: new Date()
 };
 
 var quote3 = {
-    title: "Quote 3",
-    url: "www.facebook.com",
-    text: "the lazy dog",
+    title: 'Quote 3',
+    url: 'www.facebook.com',
+    text: 'the lazy dog',
     time: new Date()
 };
 
 var booklet1 = {
-    name: "Booklet 1",
+    name: 'Booklet 1',
     quotables: [ quote1 ]
 };
 
 var booklet2 = {
-    name: "Booklet 2",
+    name: 'Booklet 2',
     quotables: [ quote2, quote3 ]
 };
 
@@ -83,6 +83,11 @@ app.get('/shared',
     }
 );
 
+app.post('/quote',
+    function(req, res) {
+        console.log(req.param('text'));
+    }
+);
 /* ANGELHACK END */
 
 /// catch 404 and forwarding to error handler
