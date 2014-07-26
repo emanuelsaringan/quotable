@@ -20,13 +20,13 @@
     "name": "Booklet 2",
     "quotables": [
       {
-        "title": "Quote 2",
+        "title": "Quote 3",
         "url": "www.google.com",
         "text": "fox jumps over",
         "time": "2014-07-26T07:09:48.463Z"
       },
       {
-        "title": "Quote 3",
+        "title": "Quote 4",
         "url": "www.facebook.com",
         "text": "the lazy dog",
         "time": "2014-07-26T07:09:48.463Z"

@@ -1,11 +1,7 @@
 /** @jsx React.DOM */
 
 var QuoteBooklet = React.createClass({
-
-
 	render: function() {
-
-
 		return (
 			<div className="quoteBooklet">
 				This is a Quote Booklet.
@@ -16,7 +12,7 @@ var QuoteBooklet = React.createClass({
 });
 
 var QuoteStream = React.createClass({
-	loadCommentsFromServer: function() {
+	load: function() {
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
@@ -30,8 +26,7 @@ var QuoteStream = React.createClass({
 	},
 	componentDidMount: function() {
 		this.loadCommentsFromServer();
-		console.log("loaded");
-		setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+		setInterval(this.load, this.props.pollInterval);
 	},
 	getInitialState: function() {
 		return ({data: []});
@@ -62,11 +57,11 @@ var QuoteBox = React.createClass({
 	render: function() {
 		return (
 			<div className="quoteBox">
-			 	This is the Quote Box
 			 	Quotable: <QuoteText text={this.props.text}/>
-				Title: <QuoteTitle title={this.props.title}/>
+				Title: <QuoteTitle title={this.props.title} url={this.props.url}/>
+				From: <QuoteUrl url={this.props.url}/>
 				Time: <QuoteTime time={this.props.time}/>
-				URL: <QuoteUrl url={this.props.url}/>
+				<br/>
 			</div>
 
 			);
@@ -87,7 +82,9 @@ var QuoteTitle = React.createClass({
 	render: function() {
 		return (
 			<div className="quoteTitle">
-			 	{this.props.title}
+			 	<a href={this.props.url}>
+			 		{this.props.title}
+			 	</a>
 			</div>
 			);
 	}
