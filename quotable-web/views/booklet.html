@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title> quotable </title>
+      <link rel="stylesheet" href="/css/style.css"/>
+      <link href='http://fonts.googleapis.com/css?family=Montserrat: 400,700|Patua+One' rel='stylesheet' type='text/css'>
+      <link href="/css/bootstrap-theme.css" rel='stylesheet' type='text/css'>
+      <link href="/css/bootstrap.css" rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div id="gridContainer">
+        <div id="sideBar" class="col-sm-3">
+          <div id="sideBarBox">
+            <div id="logoBox" class="sideBox">
+              <img src="/img/qLogo.png"/>
+            </div>
+            <div id="search" class="sideBox">
+              <input type="text" placeholder="Search for a quotable.."/>
+            </div>
+            <div id="quotables" class="sideBox">
+              <img src=""/>
+              <span>
+                your <strong> quotables </strong>
+              </span>
+            </div>
+            <div id="booklets" class="sideBox">
+              <img src=""/>
+              <span>
+                your <strong> booklets </strong>
+              </span>
+            </div>
+            <div id="shared" class="sideBox">
+              <img src=""/>
+              <span>
+                <strong> shared </strong> to you
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div id="canvas" class="col-sm-9">
+            <h1>Booklets</h1>
+
+            <div class="row text-left">
+              <div class="col-sm-4">
+                <img src="/img/bookleticon.png" alt="Technopreneurship" width="200" height="200"/>
+                <div class="booklet-label">Technopreneurship</div>
+              </div>
+
+              <div class="col-sm-4">
+                <img src="/img/bookleticon.png" alt="Design" width="200" height="200"/>
+                <div class="booklet-label">Design</div>
+              </div>
+
+              <div class="col-sm-4">
+                <img src="/img/bookleticon.png" alt="Business" width="200" height="200"/>
+                <div class="booklet-label">Business</div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/react-with-addons.js"></script>
+    <script type="text/javascript" src="/js/build/quotable.js"></script>
+  </body>
+</html>

@@ -46,7 +46,9 @@ app.get('/booklet',
                     return;
                 }
 
-                res.json(booklets);
+                res.render('booklet', {
+                    booklets: booklets
+                });
             }
         );
     }

@@ -6,6 +6,11 @@ body {
   color: #00B7FF;
 }*/
 
+.booklet-label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
 .example-enter {
     opacity: 0.01;
     transition: opacity .5s ease-in;
