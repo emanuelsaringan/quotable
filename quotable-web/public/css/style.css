@@ -144,8 +144,8 @@ body {
 }
 
 .quoteLogo img { 
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   position: absolute;
 /*  border-right: 5px solid rgb(241, 194, 71);*/
   opacity: 0.4;
