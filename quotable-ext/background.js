@@ -31,7 +31,7 @@ chrome.contextMenus.create({
                     // Handle error
                     http.onreadystatechange = function() {
                             if (http.readyState == 4 && http.status == 200) {
-                                    alert(http.responseText);
+                                    console.log(http.responseText);
                             }
                     };
 

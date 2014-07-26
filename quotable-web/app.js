@@ -30,54 +30,39 @@ app.get('/users', users.list);
 /* ANGELHACK START */
 
 // MongoDB
-var db       = mongoose.createConnection('mongodb://localhost/quotable');
-// var Booklet  = require('./schemas/bookletSchema')(db);
-var Quote  = require('./schemas/bookletSchema')(db);
-
-// Sample Data
-var quote1 = {
-    title: 'Quote 1',
-    url: 'www.wikipedia.org',
-    text: 'The quick brown',
-    time: new Date()
-};
-
-var quote2 = {
-    title: 'Quote 2',
-    url: 'www.google.com',
-    text: 'fox jumps over',
-    time: new Date()
-};
-
-var quote3 = {
-    title: 'Quote 3',
-    url: 'www.facebook.com',
-    text: 'the lazy dog',
-    time: new Date()
-};
-
-var booklet1 = {
-    name: 'Booklet 1',
-    quotables: [ quote1 ]
-};
-
-var booklet2 = {
-    name: 'Booklet 2',
-    quotables: [ quote2, quote3 ]
-};
+var db      = mongoose.createConnection('mongodb://localhost/quotable');
+var Booklet = require('./schemas/bookletSchema')(db);
+var Quote   = require('./schemas/quoteSchema')(db);
 
 app.get('/booklet',
     function(req, res) {
-        res.json([
-            booklet1,
-            booklet2
-        ]);
+        Booklet.find({}, function(err, booklets) {
+                if (err) {
+                    console.log(err);
+                    res.send(500);
+                    return;
+                }
+
+                res.send(booklets);
+            }
+        );
     }
 );
 
 app.get('/booklet/:id',
     function(req, res) {
-        res.json(booklet2);
+        Quote.find({
+            bookletId: new mongoose.Types.ObjectId(req.param('id'))
+        }, function(err, quotes) {
+                if (err) {
+                    console.log(err);
+                    res.send(500);
+                    return;
+                }
+
+                res.send(quotes);
+            }
+        );
     }
 );
 
@@ -86,6 +71,22 @@ app.get('/shared',
         res.json({
             // TODO
         });
+    }
+);
+
+app.get('/quote',
+    function(req, res) {
+        Quote.find({},
+            function(err, quotes) {
+                if (err) {
+                    console.log(err);
+                    res.send(500);
+                    return;
+                }
+
+                res.send(quotes);
+            }
+        );
     }
 );
 
@@ -101,7 +102,7 @@ app.post('/quote',
             function(err) {
                 if (err) {
                     console.log(err);
-                    res.send(200);
+                    res.send(500);
                     return;
                 }
 
