@@ -131,7 +131,10 @@ body {
 .quoteLogo {
   float: right;
   margin-right: 0px;
-  margin-top: -70px;
+  margin-top: -55px;
+  display: inline-block;
+/*  border: 1px solid black;*/
+  text-align: center;
 /*  visibility: hidden;*/
 }
 
@@ -141,11 +144,35 @@ body {
 }
 
 .quoteLogo img { 
-  height: 40px;
-  width: 40px;
+  height: 25px;
+  width: 25px;
   position: absolute;
-  border-right: 5px solid rgb(241, 194, 71);
+/*  border-right: 5px solid rgb(241, 194, 71);*/
   opacity: 0.4;
+  display: inline-block;
+/*  margin-top: 20px;*/
+/*  border: 1px solid black;*/
+}
+
+.quoteLogo span { 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 80%;
+  text-align: center;
+/*  border: 1px solid black;*/
+  display: inline-block;
+  padding-right: 75px;
+}
+
+.quoteAction {
+  text-align: center;
+/*  border: 1px solid black;*/
+  display: inline-block;
+}
+
+.quoteLink {
+  text-align: center;
+/*  border: 1px solid black;*/
+  display: inline-block;
 }
 
 @-webkit-keyframes greenPulse {

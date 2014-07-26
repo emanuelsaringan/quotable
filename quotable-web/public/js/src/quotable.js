@@ -131,6 +131,12 @@ var QuoteLogo = React.createClass({
     render: function() {
         return (
             <div className="quoteLogo">
+                <div class="quoteAction">
+                    <span> Share To: </span>
+                    <span> Move To: </span>
+                </div>
+
+                <div class="quoteLink">
                 <a href={"http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=" + this.props.text} target="_blank">
                     <img className="moveToBooklet" src="/img/btnShareTwitter.png" alt="Twitter"/>
                 </a>
@@ -140,6 +146,7 @@ var QuoteLogo = React.createClass({
                 <a><img className="moveToBooklet" src="/img/bookletTechnopreneurship.png" /></a>
                 <a><img className="moveToBooklet" src="/img/bookletDesign.png" /></a>
                 <a><img className="moveToBooklet" src="/img/bookletBusiness.png" /></a>
+                </div>
             </div>
         );
     }

@@ -131,6 +131,12 @@ var QuoteLogo = React.createClass({displayName: 'QuoteLogo',
     render: function() {
         return (
             React.DOM.div({className: "quoteLogo"}, 
+                React.DOM.div({class: "quoteAction"}, 
+                    React.DOM.span(null, " Share To: "), 
+                    React.DOM.span(null, " Move To: ")
+                ), 
+
+                React.DOM.div({class: "quoteLink"}, 
                 React.DOM.a({href: "http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=" + this.props.text, target: "_blank"}, 
                     React.DOM.img({className: "moveToBooklet", src: "/img/btnShareTwitter.png", alt: "Twitter"})
                 ), 
@@ -140,6 +146,7 @@ var QuoteLogo = React.createClass({displayName: 'QuoteLogo',
                 React.DOM.a(null, React.DOM.img({className: "moveToBooklet", src: "/img/bookletTechnopreneurship.png"})), 
                 React.DOM.a(null, React.DOM.img({className: "moveToBooklet", src: "/img/bookletDesign.png"})), 
                 React.DOM.a(null, React.DOM.img({className: "moveToBooklet", src: "/img/bookletBusiness.png"}))
+                )
             )
         );
     }
