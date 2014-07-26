@@ -23,3 +23,11 @@ build/Release
 # Deployed apps should consider commenting this line out:
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules
+
+quotable-web/build/.module-cache/00e1c0410ccbea82cf693a7037bf4ec6d109e706.js
+
+quotable-web/build/.module-cache/07a874b9d6149fe9eba89f5438281e3917575db1.js
+
+*.js
+
+*.json
