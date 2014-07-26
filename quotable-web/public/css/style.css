@@ -2,9 +2,9 @@ body {
   background-color: rgb(250, 250, 250);
 }
 
-/*a {
-  color: #00B7FF;
-}*/
+.sideBox {
+    color: #333;
+}
 
 .booklet-label {
     font-family: 'Montserrat', sans-serif;
