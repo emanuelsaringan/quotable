@@ -1,10 +1,11 @@
-var express = require('express');
-var http = require('http');
-var path = require('path');
-var favicon = require('static-favicon');
-var logger = require('morgan');
+var express      = require('express');
+var http         = require('http');
+var path         = require('path');
+var favicon      = require('static-favicon');
+var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var mongoose     = require('mongoose');
+var bodyParser   = require('body-parser');
 
 var routes = require('./routes');
 var users = require('./routes/user');
@@ -27,6 +28,11 @@ app.get('/', routes.index);
 app.get('/users', users.list);
 
 /* ANGELHACK START */
+
+// MongoDB
+var db       = mongoose.createConnection('mongodb://localhost/quotable');
+// var Booklet  = require('./schemas/bookletSchema')(db);
+var Quote  = require('./schemas/bookletSchema')(db);
 
 // Sample Data
 var quote1 = {
@@ -85,9 +91,23 @@ app.get('/shared',
 
 app.post('/quote',
     function(req, res) {
-        console.log(req.param('text'));
-        console.log(req.param('title'));
-        console.log(req.param('url'));
+        var quote = new Quote({
+            title: req.param('title'),
+            url: req.param('url'),
+            text: req.param('text')
+        });
+
+        quote.save(
+            function(err) {
+                if (err) {
+                    console.log(err);
+                    res.send(200);
+                    return;
+                }
+
+                res.send(200);
+            }
+        );
     }
 );
 /* ANGELHACK END */
