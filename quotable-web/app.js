@@ -79,7 +79,7 @@ app.get('/booklet',
 app.post('/booklet',
     function(req, res) {
         var booklet = {
-            name: req.param('name');
+            name: req.param('name')
         };
 
         booklet.save(
