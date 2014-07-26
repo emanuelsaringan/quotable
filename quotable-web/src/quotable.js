@@ -124,6 +124,6 @@ var QuoteLogo = React.createClass({
 });
 
 React.renderComponent(
-	<QuoteStream url="sample.json" pollInterval={2000} />,
+	<QuoteStream url="/quote" pollInterval={2000} />,
 	document.getElementById("quoteStream")
 );
