@@ -1,6 +1,17 @@
 /** @jsx React.DOM */
 
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+/*
+ Get param value from URL (Source: StackOverflow)
+*/
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+var bookletID = getParameterByName('booklet');
 
 var QuoteStream = React.createClass({
     load: function() {
@@ -37,6 +48,7 @@ var QuoteStream = React.createClass({
                 <div className="quoteBookletTitle">
                     your quotables
                 </div>
+                <Banner/>
                 <ReactCSSTransitionGroup transitionName="example">
                     {contentRow}
                 </ReactCSSTransitionGroup>
@@ -58,7 +70,21 @@ var QuoteBox = React.createClass({
         );
     }
 });
- 
+
+var Banner = React.createClass({
+    render: function() {
+        if (bookletID) {
+            return (
+                <img src="/img/btnShareTwitter.PNG" alt="Banner" width="100" height="100"/>
+            );
+        }
+
+        return (
+            <span></span>
+        );
+    }
+});
+
 var QuoteText = React.createClass({
     render: function() {
         return (
@@ -110,8 +136,8 @@ var QuoteLogo = React.createClass({
         );
     }
 });
- 
+
 React.renderComponent(
-    <QuoteStream url="/quote" pollInterval={2000} />,
+    <QuoteStream url={bookletID ? '/booklet/' + bookletID : '/quote'} pollInterval={2000} />,
     document.getElementById("quoteStream")
 );
