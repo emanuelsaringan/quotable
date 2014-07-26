@@ -2,6 +2,10 @@ body {
   background-color: rgb(250, 250, 250);
 }
 
+#sideBarBox a {
+    text-decoration: none;
+}
+
 .sideBox {
     color: #333;
 }
@@ -172,6 +176,7 @@ body {
 .quoteTitle {
     font-family: 'Patua One', cursive;
     font-size:  120%;
+    max-width: 600px;
 }
 
 .quoteTitle a:link, .quoteTitle a:visited, .quoteTime {

@@ -64,7 +64,7 @@ var QuoteBox = React.createClass({displayName: 'QuoteBox',
                 QuoteText({text: this.props.quotable.text}), 
                 QuoteTitle({title: this.props.quotable.title, url: this.props.quotable.url}), 
                 QuoteTime({time: this.props.quotable.createdAt}), 
-                QuoteLogo(null), 
+                QuoteLogo({text: this.props.quotable.text}), 
                 React.DOM.hr(null)
             )
         );
@@ -131,12 +131,15 @@ var QuoteLogo = React.createClass({displayName: 'QuoteLogo',
     render: function() {
         return (
             React.DOM.div({className: "quoteLogo"}, 
-                React.DOM.div({class: "fb-share-button", 'data-href': "https://developers.facebook.com/docs/plugins/"}), 
-                React.DOM.a({href: "https://twitter.com/share", class: "twitter-share-button", 'data-url': "https://dev.twitter.com", 'data-via': "your_screen_name", 'data-lang': "en"}, "Tweet"), 
-
-                React.DOM.a({href: ""}, React.DOM.img({class: "moveToBooklet", src: "/img/bookletTechnopreneurship.png"})), 
-                React.DOM.a({href: ""}, React.DOM.img({class: "moveToBooklet", src: "/img/bookletDesign.png"})), 
-                React.DOM.a({href: ""}, React.DOM.img({class: "moveToBooklet", src: "/img/bookletBusiness.png"}))
+                React.DOM.a({href: "http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=" + this.props.text, target: "_blank"}, 
+                    React.DOM.img({className: "moveToBooklet", src: "/img/btnShareTwitter.png", alt: "Twitter"})
+                ), 
+                React.DOM.a({href: "http://www.facebook.com/sharer.php?u=" + encodeURIComponent("http://localhost:3000"), target: "_blank"}, 
+                    React.DOM.img({className: "moveToBooklet", src: "/img/btnShareFB.png", alt: "FB"})
+                ), 
+                React.DOM.a(null, React.DOM.img({className: "moveToBooklet", src: "/img/bookletTechnopreneurship.png"})), 
+                React.DOM.a(null, React.DOM.img({className: "moveToBooklet", src: "/img/bookletDesign.png"})), 
+                React.DOM.a(null, React.DOM.img({className: "moveToBooklet", src: "/img/bookletBusiness.png"}))
             )
         );
     }

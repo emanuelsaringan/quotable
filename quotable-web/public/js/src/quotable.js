@@ -64,7 +64,7 @@ var QuoteBox = React.createClass({
                 <QuoteText text={this.props.quotable.text}/>
                 <QuoteTitle title={this.props.quotable.title} url={this.props.quotable.url}/>            
                 <QuoteTime time={this.props.quotable.createdAt}/>
-                <QuoteLogo />
+                <QuoteLogo text={this.props.quotable.text}/>
                 <hr/>
             </div>
         );
@@ -131,12 +131,15 @@ var QuoteLogo = React.createClass({
     render: function() {
         return (
             <div className="quoteLogo">
-                <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/"></div>
-                <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://dev.twitter.com" data-via="your_screen_name" data-lang="en">Tweet</a>
-
-                <a href="" ><img class="moveToBooklet" src="/img/bookletTechnopreneurship.png" /></a>
-                <a href="" ><img class="moveToBooklet" src="/img/bookletDesign.png" /></a>
-                <a href="" ><img class="moveToBooklet" src="/img/bookletBusiness.png" /></a>
+                <a href={"http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=" + this.props.text} target="_blank">
+                    <img className="moveToBooklet" src="/img/btnShareTwitter.png" alt="Twitter"/>
+                </a>
+                <a href={"http://www.facebook.com/sharer.php?u=" + encodeURIComponent("http://localhost:3000")} target="_blank">
+                    <img className="moveToBooklet" src="/img/btnShareFB.png" alt="FB"/>
+                </a>
+                <a><img className="moveToBooklet" src="/img/bookletTechnopreneurship.png" /></a>
+                <a><img className="moveToBooklet" src="/img/bookletDesign.png" /></a>
+                <a><img className="moveToBooklet" src="/img/bookletBusiness.png" /></a>
             </div>
         );
     }
