@@ -14,6 +14,8 @@ var QuoteStream = React.createClass({
                 console.error(this.props.url, status, err.toString());
             }.bind(this)
         });
+
+        $('.timeago').timeago();
     },
     componentDidMount: function() {
         this.load();
@@ -31,14 +33,15 @@ var QuoteStream = React.createClass({
         }.bind(this));
 
         return (
-            <div className="quoteBookletTitle">
-                    your quotables
-            </div>
-            <div className="quoteStream">
-
-                <ReactCSSTransitionGroup transitionName="example">
-                    {contentRow}
-                </ReactCSSTransitionGroup>
+            <div>
+                <div className="quoteBookletTitle">
+                        your quotables
+                </div>
+                <div className="quoteStream">
+                    <ReactCSSTransitionGroup transitionName="example">
+                        {contentRow}
+                    </ReactCSSTransitionGroup>
+                </div>
             </div>
         );
     }
@@ -93,9 +96,7 @@ var QuoteTime = React.createClass({
     render: function() {
         return (
             <div>
-                <small className="quoteTime">
-                    {this.props.time}
-                </small>
+                <small className="quoteTime timeago" title={this.props.time}></small>
             </div>
         );
     }
