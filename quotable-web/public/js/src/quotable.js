@@ -27,6 +27,30 @@ var QuoteStream = React.createClass({
         });
 
         $('.timeago').timeago();
+
+        $('.moveToBooklet').unbind().click(
+            function() {
+                if ($(this).hasClass('selectedBooklet')) {
+                    $(this).removeClass('selectedBooklet');
+                } else {
+                    var that = $(this);
+                    that.closest('.quoteLogo').find('.moveToBooklet').removeClass('selectedBooklet');
+                    that.addClass('selectedBooklet');
+
+                    $.ajax({
+                        type: 'PUT',
+                        url: '/quote',
+                        data: {
+                            quote_id: that.attr('data-quote'),
+                            booklet_id: that.attr('data-booklet')
+                        },
+                        success: function() {
+                            // 
+                        }
+                    });
+                }
+            }
+        );
     },
     componentDidMount: function() {
         this.load();
@@ -64,7 +88,7 @@ var QuoteBox = React.createClass({
                 <QuoteText text={this.props.quotable.text}/>
                 <QuoteTitle title={this.props.quotable.title} url={this.props.quotable.url}/>            
                 <QuoteTime time={this.props.quotable.createdAt}/>
-                <QuoteLogo text={this.props.quotable.text}/>
+                <QuoteLogo item={this.props.quotable}/>
                 <hr/>
             </div>
         );
@@ -131,6 +155,7 @@ var QuoteLogo = React.createClass({
     render: function() {
         return (
             <div className="quoteLogo">
+<<<<<<< HEAD
                 <div class="quoteAction">
                     <span> Share To: </span>
                     <span> Move To: </span>
@@ -139,14 +164,24 @@ var QuoteLogo = React.createClass({
                 <div class="quoteLink">
                 <a href={"http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=" + this.props.text} target="_blank">
                     <img className="moveToBooklet" src="/img/btnShareTwitter.png" alt="Twitter"/>
+=======
+                <a href={"http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=" + this.props.item.text} target="_blank">
+                    <img className="shareIcon" src="/img/btnShareTwitter.png" alt="Twitter"/>
+>>>>>>> FETCH_HEAD
                 </a>
                 <a href={"http://www.facebook.com/sharer.php?u=" + encodeURIComponent("http://localhost:3000")} target="_blank">
-                    <img className="moveToBooklet" src="/img/btnShareFB.png" alt="FB"/>
+                    <img className="shareIcon" src="/img/btnShareFB.png" alt="FB"/>
                 </a>
+<<<<<<< HEAD
                 <a><img className="moveToBooklet" src="/img/bookletTechnopreneurship.png" /></a>
                 <a><img className="moveToBooklet" src="/img/bookletDesign.png" /></a>
                 <a><img className="moveToBooklet" src="/img/bookletBusiness.png" /></a>
                 </div>
+=======
+                <a><img className="moveToBooklet" src="/img/bookletTechnopreneurship.png" data-quote={this.props.item._id} data-booklet="53d3d1021874ea010f76c591"/></a>
+                <a><img className="moveToBooklet" src="/img/bookletDesign.png" data-quote={this.props.item._id} data-booklet="53d3d1021874ea010f76c592"/></a>
+                <a><img className="moveToBooklet" src="/img/bookletBusiness.png" data-quote={this.props.item._id} data-booklet="53d3d1021874ea010f76c593"/></a>
+>>>>>>> FETCH_HEAD
             </div>
         );
     }
