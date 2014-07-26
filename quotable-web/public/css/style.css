@@ -22,6 +22,7 @@ body {
 
 #sideBar, .quoteStream {
   display: inline-block;
+  background-color: white;  
 }
 
 #sideBarBox {
@@ -35,8 +36,10 @@ body {
   font-size: 100%;
 
   padding: 0px 0px 0px 0px;
-/*  margin-left: -10px;
-  margin-top: -10px;*/
+  margin-left: -15px;
+  position: fixed;
+  background-color: white; 
+  /*  margin-top: -10px;*/
 }
 
 #logoBox {
@@ -75,11 +78,14 @@ body {
 }
 
 .quoteStream {
-  width: 600px;
+  width: 700px;
   vertical-align: top;
   margin: 0 auto;
   overflow: hidden;
-    
+  background-color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid rgb(242, 242, 242);    
 }
 
 .quoteBox {
@@ -115,4 +121,31 @@ body {
 
 .quoteTime {
     font-size: 80%;
+}
+
+#canvas {
+    background-color: rgb(250, 250, 250);
+    z-index: -1;
+}
+
+.quoteBookletTitle {
+  height: 60px;
+  margin-top: 9px;
+  border-bottom: 1px solid rgb(221, 221, 221);
+  font-family: 'Varela Round', sans-serif;
+  font-weight: 700;
+  font-size: 200%;
+  margin-bottom: 20px;
+  color: rgb(221, 39, 115);
+}
+
+#angel {
+  margin: 20px;
+  margin-left: 40px;
+}
+
+#angel img {
+  height: 140px;
+  width: 160px;
+  margin-bottom: 10px;
 }

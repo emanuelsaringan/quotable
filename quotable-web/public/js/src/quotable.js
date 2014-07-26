@@ -31,8 +31,11 @@ var QuoteStream = React.createClass({
         }.bind(this));
 
         return (
+            <div className="quoteBookletTitle">
+                    your quotables
+            </div>
             <div className="quoteStream">
-                <h1> QuoteStream </h1>
+
                 <ReactCSSTransitionGroup transitionName="example">
                     {contentRow}
                 </ReactCSSTransitionGroup>

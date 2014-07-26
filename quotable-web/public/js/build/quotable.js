@@ -32,7 +32,9 @@ var QuoteStream = React.createClass({displayName: 'QuoteStream',
 
         return (
             React.DOM.div({className: "quoteStream"}, 
-                React.DOM.h1(null, " QuoteStream "), 
+                React.DOM.div({className: "quoteBookletTitle"}, 
+                    "your quotables"
+                ), 
                 ReactCSSTransitionGroup({transitionName: "example"}, 
                     contentRow
                 )
