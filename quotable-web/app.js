@@ -6,6 +6,7 @@ var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
 var mongoose     = require('mongoose');
 var bodyParser   = require('body-parser');
+var async        = require('async');
 
 var routes = require('./routes');
 var users = require('./routes/user');
@@ -30,57 +31,110 @@ app.get('/users', users.list);
 /* ANGELHACK START */
 
 // MongoDB
-var db       = mongoose.createConnection('mongodb://localhost/quotable');
-// var Booklet  = require('./schemas/bookletSchema')(db);
-var Quote  = require('./schemas/bookletSchema')(db);
+var db      = mongoose.createConnection('mongodb://localhost/quotable');
+var Booklet = require('./schemas/bookletSchema')(db);
+var Quote   = require('./schemas/quoteSchema')(db);
 
-// Sample Data
-var quote1 = {
-    title: 'Quote 1',
-    url: 'www.wikipedia.org',
-    text: 'The quick brown',
-    time: new Date()
-};
-
-var quote2 = {
-    title: 'Quote 2',
-    url: 'www.google.com',
-    text: 'fox jumps over',
-    time: new Date()
-};
-
-var quote3 = {
-    title: 'Quote 3',
-    url: 'www.facebook.com',
-    text: 'the lazy dog',
-    time: new Date()
-};
-
-var booklet1 = {
-    name: 'Booklet 1',
-    quotables: [ quote1 ]
-};
-
-var booklet2 = {
-    name: 'Booklet 2',
-    quotables: [ quote2, quote3 ]
-};
-
+// Get all booklets
 app.get('/booklet',
     function(req, res) {
-        res.json([
-            booklet1,
-            booklet2
-        ]);
+        Booklet.find({},
+            function(err, booklets) {
+                if (err) {
+                    console.log(err);
+                    res.send(500);
+                    return;
+                }
+
+                async.map(booklets,
+                    function(booklet, callback) {
+                        Quote.find({
+                            bookletId: new mongoose.Types.ObjectId(booklet._id)
+                        }, function(err, quotes) {
+                            if (err) {
+                                console.log(err);
+                                callback(err);
+                                return;
+                            }
+
+                            booklet.quotables = quotes;
+                            callback(null, booklet);
+                        });
+                    }, function(err, booklets) {
+                        if (err) {
+                            console.log(err);
+                            res.send(500);
+                            return;
+                        }
+
+                        res.send(booklets);
+                    }
+                );
+            }
+        );
     }
 );
 
+// Create a booklet
+app.post('/booklet',
+    function(req, res) {
+        var booklet = {
+            name: req.param('name');
+        };
+
+        booklet.save(
+            function(err) {
+                if (err) {
+                    console.log(err);
+                    res.send(500);
+                    return;
+                }
+
+                res.send(200);
+            }
+        );
+    }
+);
+
+// Add a quote to a booklet
+app.put('/quote',
+    function(req, res) {
+        var quoteId = new mongoose.Types.ObjectId(req.param('quote_id'));
+        var bookletId = new mongoose.Types.ObjectId(req.param('booklet_id'));
+
+        Quote.update({ _id: quoteId }, { $set: { bookletId: bookletId } }, {},
+            function(err) {
+                if (err) {
+                    console.log(err);
+                    res.send(500);
+                    return;
+                }
+
+                res.send(200);
+            }
+        );
+    }
+);
+
+// Get a specific booklet
 app.get('/booklet/:id',
     function(req, res) {
-        res.json(booklet2);
+        Quote.find({
+            bookletId: new mongoose.Types.ObjectId(req.param('id'))
+        }, function(err, quotes) {
+                if (err) {
+                    console.log(err);
+                    res.send(500);
+                    return;
+                }
+
+                res.send(quotes);
+            }
+        );
     }
 );
 
+// Get shared
 app.get('/shared',
     function(req, res) {
         res.json({
@@ -89,6 +143,24 @@ app.get('/shared',
     }
 );
 
+// Get all quotes
+app.get('/quote',
+    function(req, res) {
+        Quote.find({},
+            function(err, quotes) {
+                if (err) {
+                    console.log(err);
+                    res.send(500);
+                    return;
+                }
+
+                res.send(quotes);
+            }
+        );
+    }
+);
+
+// Add quote
 app.post('/quote',
     function(req, res) {
         var quote = new Quote({
@@ -101,7 +173,7 @@ app.post('/quote',
             function(err) {
                 if (err) {
                     console.log(err);
-                    res.send(200);
+                    res.send(500);
                     return;
                 }
 
