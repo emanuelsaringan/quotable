@@ -45,8 +45,8 @@ var QuoteBox = React.createClass({displayName: 'QuoteBox',
     render: function() {
         return (
             React.DOM.div({className: "quoteBox"}, 
-                QuoteTitle({title: this.props.quotable.title, url: this.props.quotable.url}), 
                 QuoteText({text: this.props.quotable.text}), 
+                QuoteTitle({title: this.props.quotable.title, url: this.props.quotable.url}), 
                 QuoteTime({time: this.props.quotable.createdAt}), 
                 React.DOM.hr(null)
             )

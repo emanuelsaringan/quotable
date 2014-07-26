@@ -4,7 +4,7 @@ body {
 
 /*a {
   color: #00B7FF;
-}*/*/
+}*/
 
 .example-enter {
     opacity: 0.01;
@@ -65,8 +65,6 @@ body {
   font-size: 100%;
 }
 
-
-
 #canvas {
   text-align: center;
 }
@@ -80,7 +78,7 @@ body {
 }
 
 .quoteBox {
-    
+    text-align: left;
 }
 
 .quoteText {
@@ -89,15 +87,15 @@ body {
     padding-left: 5%;
     margin-bottom: 3%;
     border-left: 6px solid rgb(221, 39, 115);
+    font-color: rgb(74, 63, 43);
 }
 
 .quoteTitle {
     font-family: 'Patua One', cursive;
     font-size:  120%;
-    font-color: rgb(74, 63, 43);   
 }
 
-.quoteTitle a:link, .quoteTime {
+.quoteTitle a:link, .quoteTitle a:visited, .quoteTime {
     color:  rgb(89, 89, 89);
     text-decoration: none;
 }
@@ -108,7 +106,6 @@ body {
 
 .quoteTitle, .quoteTime {
     margin-bottom: 2%;
-    text-align: left;
 }
 
 .quoteTime {
