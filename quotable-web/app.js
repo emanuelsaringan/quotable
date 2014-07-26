@@ -46,30 +46,7 @@ app.get('/booklet',
                     return;
                 }
 
-                async.map(booklets,
-                    function(booklet, callback) {
-                        Quote.find({
-                            bookletId: new mongoose.Types.ObjectId(booklet._id)
-                        }, function(err, quotes) {
-                            if (err) {
-                                console.log(err);
-                                callback(err);
-                                return;
-                            }
-
-                            booklet.quotables = quotes;
-                            callback(null, booklet);
-                        });
-                    }, function(err, booklets) {
-                        if (err) {
-                            console.log(err);
-                            res.send(500);
-                            return;
-                        }
-
-                        res.send(booklets);
-                    }
-                );
+                res.json(booklets);
             }
         );
     }
@@ -119,6 +96,31 @@ app.put('/quote',
 // Get a specific booklet
 app.get('/booklet/:id',
     function(req, res) {
+        // async.map(booklets,
+        //     function(booklet, callback) {
+        //         Quote.find({
+        //             bookletId: new mongoose.Types.ObjectId(booklet._id)
+        //         }, function(err, quotes) {
+        //             if (err) {
+        //                 console.log(err);
+        //                 callback(err);
+        //                 return;
+        //             }
+
+        //             booklet.quotables = quotes;
+        //             callback(null, booklet);
+        //         });
+        //     }, function(err, booklets) {
+        //         if (err) {
+        //             console.log(err);
+        //             res.send(500);
+        //             return;
+        //         }
+
+        //         res.send(booklets);
+        //     }
+        // );
+
         Quote.find({
             bookletId: new mongoose.Types.ObjectId(req.param('id'))
         }, function(err, quotes) {
