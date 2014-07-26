@@ -48,6 +48,7 @@ var QuoteStream = React.createClass({displayName: 'QuoteStream',
                 React.DOM.div({className: "quoteBookletTitle"}, 
                     "your quotables"
                 ), 
+                Banner(null), 
                 ReactCSSTransitionGroup({transitionName: "example"}, 
                     contentRow
                 )
@@ -69,7 +70,20 @@ var QuoteBox = React.createClass({displayName: 'QuoteBox',
         );
     }
 });
- 
+
+var Banner = React.createClass({displayName: 'Banner',
+    render: function() {
+        console.log(bookletID);
+        if (bookletID) {
+            return (
+                React.DOM.img({src: "/img/btnShareTwitter.PNG", alt: "Banner", width: "100", height: "100"})
+            );
+        }
+
+        return React.DOM.span(null);
+    }
+});
+
 var QuoteText = React.createClass({displayName: 'QuoteText',
     render: function() {
         return (

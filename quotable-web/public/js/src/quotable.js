@@ -48,6 +48,7 @@ var QuoteStream = React.createClass({
                 <div className="quoteBookletTitle">
                     your quotables
                 </div>
+                <Banner/>
                 <ReactCSSTransitionGroup transitionName="example">
                     {contentRow}
                 </ReactCSSTransitionGroup>
@@ -69,7 +70,21 @@ var QuoteBox = React.createClass({
         );
     }
 });
- 
+
+var Banner = React.createClass({
+    render: function() {
+        console.log(bookletID);
+        if (bookletID) {
+            return (
+                <img src="/img/btnShareTwitter.PNG" alt="Banner" width="100" height="100"/>
+            );
+        }
+
+        return (
+        );
+    }
+});
+
 var QuoteText = React.createClass({
     render: function() {
         return (
