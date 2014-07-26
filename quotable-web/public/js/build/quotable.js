@@ -2,6 +2,18 @@
 
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
+/*
+ Get param value from URL (Source: StackOverflow)
+*/
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+var bookletID = getParameterByName('booklet');
+
 var QuoteStream = React.createClass({displayName: 'QuoteStream',
     load: function() {
         $.ajax({
@@ -110,8 +122,9 @@ var QuoteLogo = React.createClass({displayName: 'QuoteLogo',
         );
     }
 });
- 
+
+if (window)
 React.renderComponent(
-    QuoteStream({url: "/quote", pollInterval: 2000}),
+    QuoteStream({url: bookletID ? ('/booklet/' + bookletID) : '/quote', pollInterval: 2000}),
     document.getElementById("quoteStream")
 );
