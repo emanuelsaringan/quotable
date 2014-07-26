@@ -1,7 +1,6 @@
 /** @jsx React.DOM */
 
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-
 /*
  Get param value from URL (Source: StackOverflow)
 */
@@ -123,8 +122,7 @@ var QuoteLogo = React.createClass({displayName: 'QuoteLogo',
     }
 });
 
-if (window)
 React.renderComponent(
-    QuoteStream({url: bookletID ? ('/booklet/' + bookletID) : '/quote', pollInterval: 2000}),
+    QuoteStream({url: bookletID ? '/booklet/' + bookletID : '/quote', pollInterval: 2000}),
     document.getElementById("quoteStream")
 );
