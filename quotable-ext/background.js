@@ -19,8 +19,8 @@ chrome.contextMenus.create({
 
                     // Construct query string
                     var params = 'text=' + encodeURIComponent(selection[0]);
-                    params += '&title=' + encodeURIComponent(tab.url);
-                    params += '&url=' + encodeURIComponent(tab.title);
+                    params += '&title=' + encodeURIComponent(tab.title);
+                    params += '&url=' + encodeURIComponent(tab.url);
                     http.open('POST', url, true);
 
                     // Construct header
