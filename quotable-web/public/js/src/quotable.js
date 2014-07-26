@@ -172,6 +172,7 @@ var QuoteLogo = React.createClass({
                     <a><img className="moveToBooklet" src="/img/bookletDesign.png" data-quote={this.props.item._id} data-booklet="53d3d1021874ea010f76c592"/></a>
                     <a><img className="moveToBooklet" src="/img/bookletBusiness.png" data-quote={this.props.item._id} data-booklet="53d3d1021874ea010f76c593"/></a>
                 </div>
+            </div>
         );
     }
 });

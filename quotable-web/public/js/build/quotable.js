@@ -27,6 +27,30 @@ var QuoteStream = React.createClass({displayName: 'QuoteStream',
         });
 
         $('.timeago').timeago();
+
+        $('.moveToBooklet').unbind().click(
+            function() {
+                if ($(this).hasClass('selectedBooklet')) {
+                    $(this).removeClass('selectedBooklet');
+                } else {
+                    var that = $(this);
+                    that.closest('.quoteLogo').find('.moveToBooklet').removeClass('selectedBooklet');
+                    that.addClass('selectedBooklet');
+
+                    $.ajax({
+                        type: 'PUT',
+                        url: '/quote',
+                        data: {
+                            quote_id: that.attr('data-quote'),
+                            booklet_id: that.attr('data-booklet')
+                        },
+                        success: function() {
+                            // 
+                        }
+                    });
+                }
+            }
+        );
     },
     componentDidMount: function() {
         this.load();
@@ -64,7 +88,7 @@ var QuoteBox = React.createClass({displayName: 'QuoteBox',
                 QuoteText({text: this.props.quotable.text}), 
                 QuoteTitle({title: this.props.quotable.title, url: this.props.quotable.url}), 
                 QuoteTime({time: this.props.quotable.createdAt}), 
-                QuoteLogo({text: this.props.quotable.text}), 
+                QuoteLogo({item: this.props.quotable}), 
                 React.DOM.hr(null)
             )
         );
@@ -137,15 +161,16 @@ var QuoteLogo = React.createClass({displayName: 'QuoteLogo',
                 ), 
 
                 React.DOM.div({class: "quoteLink"}, 
-                React.DOM.a({href: "http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=" + this.props.text, target: "_blank"}, 
-                    React.DOM.img({className: "moveToBooklet", src: "/img/btnShareTwitter.png", alt: "Twitter"})
-                ), 
-                React.DOM.a({href: "http://www.facebook.com/sharer.php?u=" + encodeURIComponent("http://localhost:3000"), target: "_blank"}, 
-                    React.DOM.img({className: "moveToBooklet", src: "/img/btnShareFB.png", alt: "FB"})
-                ), 
-                React.DOM.a(null, React.DOM.img({className: "moveToBooklet", src: "/img/bookletTechnopreneurship.png"})), 
-                React.DOM.a(null, React.DOM.img({className: "moveToBooklet", src: "/img/bookletDesign.png"})), 
-                React.DOM.a(null, React.DOM.img({className: "moveToBooklet", src: "/img/bookletBusiness.png"}))
+                    React.DOM.a({href: "http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=" + this.props.text, target: "_blank"}, 
+                        React.DOM.img({className: "moveToBooklet", src: "/img/btnShareTwitter.png", alt: "Twitter"})
+
+                    ), 
+                    React.DOM.a({href: "http://www.facebook.com/sharer.php?u=" + encodeURIComponent("http://localhost:3000"), target: "_blank"}, 
+                        React.DOM.img({className: "shareIcon", src: "/img/btnShareFB.png", alt: "FB"})
+                    ), 
+                    React.DOM.a(null, React.DOM.img({className: "moveToBooklet", src: "/img/bookletTechnopreneurship.png", 'data-quote': this.props.item._id, 'data-booklet': "53d3d1021874ea010f76c591"})), 
+                    React.DOM.a(null, React.DOM.img({className: "moveToBooklet", src: "/img/bookletDesign.png", 'data-quote': this.props.item._id, 'data-booklet': "53d3d1021874ea010f76c592"})), 
+                    React.DOM.a(null, React.DOM.img({className: "moveToBooklet", src: "/img/bookletBusiness.png", 'data-quote': this.props.item._id, 'data-booklet': "53d3d1021874ea010f76c593"}))
                 )
             )
         );
