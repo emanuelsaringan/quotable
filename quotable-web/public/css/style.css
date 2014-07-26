@@ -2,9 +2,9 @@ body {
   background-color: rgb(250, 250, 250);
 }
 
-a {
+/*a {
   color: #00B7FF;
-}*/
+}*/*/
 
 .example-enter {
     opacity: 0.01;
@@ -42,8 +42,9 @@ a {
 
 #logoBox img {
   width: 200px;
-  height: 70px;
+  height: 45px;
   vertical-align: middle;
+  margin: 10px 0px 10px 0px;
 }
 
 .sideBox {
