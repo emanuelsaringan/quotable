@@ -86,6 +86,8 @@ app.get('/shared',
 app.post('/quote',
     function(req, res) {
         console.log(req.param('text'));
+        console.log(req.param('title'));
+        console.log(req.param('url'));
     }
 );
 /* ANGELHACK END */

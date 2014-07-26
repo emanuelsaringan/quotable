@@ -12,6 +12,7 @@
   "permissions": [
     "http://*/",
     "https://*/",
-    "contextMenus"
+    "contextMenus",
+    "tabs"
   ]
 }
