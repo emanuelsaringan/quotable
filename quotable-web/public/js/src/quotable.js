@@ -100,7 +100,7 @@ var QuoteTitle = React.createClass({
         return (
             <div className="quoteTitle">
                 <strong>
-                    <a href={this.props.url}>{this.props.title}</a>
+                    <a href={this.props.url} target="_blank">{this.props.title}</a>
                 </strong>
             </div>
         );
