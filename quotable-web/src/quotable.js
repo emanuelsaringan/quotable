@@ -1,12 +1,60 @@
 /** @jsx React.DOM */
 
-var QuoteStream = React.createClass({
+var QuoteBooklet = React.createClass({
+
+
 	render: function() {
+
+
+		return (
+			<div className="quoteBooklet">
+				This is a Quote Booklet.
+			</div>
+
+			);
+	}
+});
+
+var QuoteStream = React.createClass({
+	loadCommentsFromServer: function() {
+		$.ajax({
+			url: this.props.url,
+			dataType: 'json',
+			success: function(data) {
+				this.setState({data: data});
+			}.bind(this),
+			error: function(xhr, status, err) {
+				console.error(this.props.url, status, err.toString());
+			}.bind(this)
+		});
+	},
+	componentDidMount: function() {
+		this.loadCommentsFromServer();
+		console.log("loaded");
+		setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+	},
+	getInitialState: function() {
+		return ({data: []});
+	},
+	render: function() {
+	console.log(this.props.data);
+	var contentRow = [];
+	var data = this.state.data;
+	data.forEach(function(booklet) {
+			console.log(booklet.name);
+			contentRow.push(<QuoteBox booklet={booklet.name}/>);
+			booklet.quotables.forEach(function(quotable) {
+				contentRow.unshift(
+					<QuoteBox title={quotable.title} url={quotable.url} text={quotable.text} time={quotable.time} />
+				);
+			});
+		}.bind(this));	
 		return (
 			<div className="quoteStream">
-			<QuoteBox />
+				<h1> QuoteStream </h1>
+				{contentRow}
 			</div>
-			);
+		);
 	}
 });
 
@@ -15,9 +63,10 @@ var QuoteBox = React.createClass({
 		return (
 			<div className="quoteBox">
 			 	This is the Quote Box
-			 	<QuoteText />
-				<QuoteTitle />
-				<QuoteTime />
+			 	Quotable: <QuoteText text={this.props.text}/>
+				Title: <QuoteTitle title={this.props.title}/>
+				Time: <QuoteTime time={this.props.time}/>
+				URL: <QuoteUrl url={this.props.url}/>
 			</div>
 
 			);
@@ -28,7 +77,7 @@ var QuoteText = React.createClass({
 	render: function() {
 		return (
 			<div className="quoteText">
-			 	This is the Quote Text
+			 	{this.props.text}
 			</div>
 			);
 	}
@@ -38,7 +87,7 @@ var QuoteTitle = React.createClass({
 	render: function() {
 		return (
 			<div className="quoteTitle">
-			 	This is the Quote Title
+			 	{this.props.title}
 			</div>
 			);
 	}
@@ -48,7 +97,7 @@ var QuoteUrl = React.createClass({
 	render: function() {
 		return (
 			<div className="quoteTitle">
-			 	This is the Quote Url
+			 	{this.props.url}
 			</div>
 			);
 	}
@@ -58,7 +107,7 @@ var QuoteTime = React.createClass({
 	render: function() {
 		return (
 			<div className="quoteTime">
-			 	This is the Quote Time
+			 	{this.props.time}
 			</div>
 			);
 	}
@@ -75,6 +124,6 @@ var QuoteLogo = React.createClass({
 });
 
 React.renderComponent(
-	<QuoteStream/>,
+	<QuoteStream url="sample.json" pollInterval={2000} />,
 	document.getElementById("quoteStream")
 );
