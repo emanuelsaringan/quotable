@@ -14,6 +14,8 @@ var QuoteStream = React.createClass({displayName: 'QuoteStream',
                 console.error(this.props.url, status, err.toString());
             }.bind(this)
         });
+
+        $('.timeago').timeago();
     },
     componentDidMount: function() {
         this.load();
@@ -31,12 +33,14 @@ var QuoteStream = React.createClass({displayName: 'QuoteStream',
         }.bind(this));
 
         return (
-            React.DOM.div({className: "quoteStream"}, 
+            React.DOM.div(null, 
                 React.DOM.div({className: "quoteBookletTitle"}, 
-                    "your quotables"
+                        "your quotables"
                 ), 
-                ReactCSSTransitionGroup({transitionName: "example"}, 
-                    contentRow
+                React.DOM.div({className: "quoteStream"}, 
+                    ReactCSSTransitionGroup({transitionName: "example"}, 
+                        contentRow
+                    )
                 )
             )
         );
@@ -50,6 +54,7 @@ var QuoteBox = React.createClass({displayName: 'QuoteBox',
                 QuoteText({text: this.props.quotable.text}), 
                 QuoteTitle({title: this.props.quotable.title, url: this.props.quotable.url}), 
                 QuoteTime({time: this.props.quotable.createdAt}), 
+                QuoteLogo(null), 
                 React.DOM.hr(null)
             )
         );
@@ -92,9 +97,7 @@ var QuoteTime = React.createClass({displayName: 'QuoteTime',
     render: function() {
         return (
             React.DOM.div(null, 
-                React.DOM.small({className: "quoteTime"}, 
-                    this.props.time
-                )
+                React.DOM.small({className: "quoteTime timeago", title: this.props.time})
             )
         );
     }
@@ -104,7 +107,7 @@ var QuoteLogo = React.createClass({displayName: 'QuoteLogo',
     render: function() {
         return (
             React.DOM.div({className: "quoteLogo"}, 
-                "This is the Quote Hovered Logo"
+                React.DOM.img({src: "/img/quotableicon.png"})
             )
         );
     }

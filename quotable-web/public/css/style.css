@@ -92,6 +92,24 @@ body {
     text-align: left;
 }
 
+.quoteBox:hover .quoteLogo {
+  visibility: visible;
+}
+
+.quoteLogo {
+  float: right;
+  margin-right: 50px;
+  margin-top: -30px;
+  visibility: hidden;
+  
+}
+
+.quoteLogo img{
+  height: 40px;
+  width: 40px;
+  position: absolute;
+}
+
 .quoteText {
     font-family: 'Patua One', cursive;
     font-size: 175%;

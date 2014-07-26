@@ -14,6 +14,8 @@ var QuoteStream = React.createClass({
                 console.error(this.props.url, status, err.toString());
             }.bind(this)
         });
+
+        $('.timeago').timeago();
     },
     componentDidMount: function() {
         this.load();
@@ -31,14 +33,25 @@ var QuoteStream = React.createClass({
         }.bind(this));
 
         return (
-            <div className="quoteBookletTitle">
-                    your quotables
-            </div>
+<<<<<<< HEAD
             <div className="quoteStream">
-
+                <div className="quoteBookletTitle">
+                    your quotables
+                </div>
                 <ReactCSSTransitionGroup transitionName="example">
                     {contentRow}
                 </ReactCSSTransitionGroup>
+=======
+            <div>
+                <div className="quoteBookletTitle">
+                        your quotables
+                </div>
+                <div className="quoteStream">
+                    <ReactCSSTransitionGroup transitionName="example">
+                        {contentRow}
+                    </ReactCSSTransitionGroup>
+                </div>
+>>>>>>> FETCH_HEAD
             </div>
         );
     }
@@ -51,6 +64,7 @@ var QuoteBox = React.createClass({
                 <QuoteText text={this.props.quotable.text}/>
                 <QuoteTitle title={this.props.quotable.title} url={this.props.quotable.url}/>            
                 <QuoteTime time={this.props.quotable.createdAt}/>
+                <QuoteLogo />
                 <hr/>
             </div>
         );
@@ -93,9 +107,7 @@ var QuoteTime = React.createClass({
     render: function() {
         return (
             <div>
-                <small className="quoteTime">
-                    {this.props.time}
-                </small>
+                <small className="quoteTime timeago" title={this.props.time}></small>
             </div>
         );
     }
@@ -105,7 +117,7 @@ var QuoteLogo = React.createClass({
     render: function() {
         return (
             <div className="quoteLogo">
-                This is the Quote Hovered Logo
+                <img src="/img/quotableicon.png" />
             </div>
         );
     }
