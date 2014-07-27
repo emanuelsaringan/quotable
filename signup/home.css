@@ -59,3 +59,8 @@ body {
 	margin-left: -125px;
 	position: absolute;
 }
+
+a {
+	text-decoration: none;
+	color: white;
+}

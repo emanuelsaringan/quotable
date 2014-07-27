@@ -125,7 +125,7 @@ app.get('/shared',
 // Get all quotes
 app.get('/quote',
     function(req, res) {
-        Quote.find({},
+        Quote.find({}).sort('createdAt').exec(
             function(err, quotes) {
                 if (err) {
                     console.log(err);
