@@ -155,12 +155,12 @@ var QuoteLogo = React.createClass({
     render: function() {
         return (
             <div className="quoteLogo">
-                <div class="quoteAction">
+                <div>
                     <span> Share To: </span>
                     <span> Move To: </span>
                 </div>
 
-                <div class="quoteLink">
+                <div>
                     <a href={"http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=" + this.props.text} target="_blank">
                         <img className="moveToBooklet" src="/img/btnShareTwitter.png" alt="Twitter"/>
 
@@ -168,9 +168,15 @@ var QuoteLogo = React.createClass({
                     <a href={"http://www.facebook.com/sharer.php?u=" + encodeURIComponent("http://localhost:3000")} target="_blank">
                         <img className="shareIcon" src="/img/btnShareFB.png" alt="FB"/>
                     </a>
-                    <a><img className="moveToBooklet" src="/img/bookletTechnopreneurship.png" data-quote={this.props.item._id} data-booklet="53d3d1021874ea010f76c591"/></a>
-                    <a><img className="moveToBooklet" src="/img/bookletDesign.png" data-quote={this.props.item._id} data-booklet="53d3d1021874ea010f76c592"/></a>
-                    <a><img className="moveToBooklet" src="/img/bookletBusiness.png" data-quote={this.props.item._id} data-booklet="53d3d1021874ea010f76c593"/></a>
+                    <a>
+                        <img className={"moveToBooklet " + ((this.props.item.bookletId === "53d3d1021874ea010f76c591") ? "selectedBooklet" : "")} src="/img/bookletTechnopreneurship.png" data-quote={this.props.item._id} data-booklet="53d3d1021874ea010f76c591"/>
+                    </a>
+                    <a>
+                        <img className={"moveToBooklet " + ((this.props.item.bookletId === "53d3d1021874ea010f76c592") ? "selectedBooklet" : "")} src="/img/bookletDesign.png" data-quote={this.props.item._id} data-booklet="53d3d1021874ea010f76c592"/>
+                    </a>
+                    <a>
+                        <img className={"moveToBooklet " + ((this.props.item.bookletId === "53d3d1021874ea010f76c593") ? "selectedBooklet" : "")} src="/img/bookletBusiness.png" data-quote={this.props.item._id} data-booklet="53d3d1021874ea010f76c593"/>
+                    </a>
                 </div>
             </div>
         );
