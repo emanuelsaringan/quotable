@@ -43,12 +43,12 @@ body {
 }
 
 .example-enter {
-    opacity: 0.01;
-    transition: opacity .5s ease-in;
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
 }
 
 .example-enter.example-enter-active {
-    opacity: 1;
+  opacity: 1;
 }
 
 #sideBar, .quoteStream {
@@ -70,7 +70,6 @@ body {
   margin-left: -15px;
   position: fixed;
   background-color: white; 
-  /*  margin-top: -10px;*/
 }
 
 #logoBox {
@@ -121,7 +120,7 @@ body {
 }
 
 .quoteBox {
-    text-align: left;
+  text-align: left;
 }
 
 .quoteBox:hover .quoteLogo {
@@ -133,9 +132,7 @@ body {
   margin-right: 0px;
   margin-top: -55px;
   display: inline-block;
-/*  border: 1px solid black;*/
   text-align: center;
-/*  visibility: hidden;*/
 }
 
 .quoteLogo a {
@@ -147,31 +144,25 @@ body {
   height: 20px;
   width: 20px;
   position: absolute;
-/*  border-right: 5px solid rgb(241, 194, 71);*/
   opacity: 0.4;
   display: inline-block;
-/*  margin-top: 20px;*/
-/*  border: 1px solid black;*/
 }
 
 .quoteLogo span { 
   font-family: 'Montserrat', sans-serif;
   font-size: 80%;
   text-align: center;
-/*  border: 1px solid black;*/
   display: inline-block;
   padding-right: 75px;
 }
 
 .quoteAction {
   text-align: center;
-/*  border: 1px solid black;*/
   display: inline-block;
 }
 
 .quoteLink {
   text-align: center;
-/*  border: 1px solid black;*/
   display: inline-block;
 }
 
@@ -181,23 +172,23 @@ body {
 }
 
 .quoteLogo img:hover {
-    background-color: #91bd09;
-    -webkit-animation-name: greenPulse;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-box-shadow: 0 0 20px #91bd09;
+  background-color: #91bd09;
+  -webkit-animation-name: greenPulse;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-box-shadow: 0 0 20px #91bd09;
 
-    cursor:pointer;
-    opacity: 1.0;
+  cursor:pointer;
+  opacity: 1.0;
 }
 
 .quoteText {
-    font-family: 'Patua One', cursive;
-    font-size: 175%;
-    padding-left: 5%;
-    margin-bottom: 3%;
-    border-left: 6px solid rgb(221, 39, 115);
-    font-color: rgb(74, 63, 43);
+  font-family: 'Patua One', cursive;
+  font-size: 175%;
+  padding-left: 5%;
+  margin-bottom: 3%;
+  border-left: 6px solid rgb(221, 39, 115);
+  font-color: rgb(74, 63, 43);
 }
 
 .quoteTitle {
