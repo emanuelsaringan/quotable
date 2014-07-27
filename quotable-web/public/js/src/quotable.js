@@ -161,7 +161,7 @@ var QuoteLogo = React.createClass({
                 </div>
 
                 <div>
-                    <a href={"http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=" + encodeURIComponent(this.props.item.text)} target="_blank">
+                    <a href={"http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=%22" + encodeURIComponent(this.props.item.text) + "%22"} target="_blank">
                         <img className="shareIcon" src="/img/btnShareTwitter.png" alt="Twitter" title="Tweet"/>
                     </a>
                     <a href={"http://www.facebook.com/sharer.php?u=" + encodeURIComponent("http://localhost:3000")} target="_blank">
