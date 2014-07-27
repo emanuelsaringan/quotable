@@ -99,7 +99,9 @@ var Banner = React.createClass({displayName: 'Banner',
     render: function() {
         if (bookletID) {
             return (
-                React.DOM.img({src: "/img/angel.jpg", alt: "Banner", width: "100", height: "100"})
+                React.DOM.img({src: "/img/leancanvas.jpg", alt: "Banner", width: "700", height: "200"})
+                // <img src="/img/wireframe.jpg" alt="Banner" width="700" height="200"/>
+                // <img src="/img/vc.jpg" alt="Banner" width="700" height="200"/>
             );
         }
 
