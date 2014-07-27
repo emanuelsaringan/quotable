@@ -162,20 +162,19 @@ var QuoteLogo = React.createClass({displayName: 'QuoteLogo',
 
                 React.DOM.div(null, 
                     React.DOM.a({href: "http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=" + encodeURIComponent(this.props.item.text), target: "_blank"}, 
-                        React.DOM.img({className: "shareIcon", src: "/img/btnShareTwitter.png", alt: "Twitter"})
-
+                        React.DOM.img({className: "shareIcon", src: "/img/btnShareTwitter.png", alt: "Twitter", title: "Tweet"})
                     ), 
                     React.DOM.a({href: "http://www.facebook.com/sharer.php?u=" + encodeURIComponent("http://localhost:3000"), target: "_blank"}, 
-                        React.DOM.img({className: "shareIcon", src: "/img/btnShareFB.png", alt: "FB"})
+                        React.DOM.img({className: "shareIcon", src: "/img/btnShareFB.png", alt: "FB", title: "Share"})
                     ), 
                     React.DOM.a(null, 
-                        React.DOM.img({className: "moveToBooklet " + ((this.props.item.bookletId === "53d3d1021874ea010f76c591") ? "selectedBooklet" : ""), src: "/img/bookletTechnopreneurship.png", 'data-quote': this.props.item._id, 'data-booklet': "53d3d1021874ea010f76c591"})
+                        React.DOM.img({className: "moveToBooklet " + ((this.props.item.bookletId === "53d3d1021874ea010f76c591") ? "selectedBooklet" : ""), src: "/img/bookletTechnopreneurship.png", 'data-quote': this.props.item._id, 'data-booklet': "53d3d1021874ea010f76c591", title: "Technopreneurship"})
                     ), 
                     React.DOM.a(null, 
-                        React.DOM.img({className: "moveToBooklet " + ((this.props.item.bookletId === "53d3d1021874ea010f76c592") ? "selectedBooklet" : ""), src: "/img/bookletDesign.png", 'data-quote': this.props.item._id, 'data-booklet': "53d3d1021874ea010f76c592"})
+                        React.DOM.img({className: "moveToBooklet " + ((this.props.item.bookletId === "53d3d1021874ea010f76c592") ? "selectedBooklet" : ""), src: "/img/bookletDesign.png", 'data-quote': this.props.item._id, 'data-booklet': "53d3d1021874ea010f76c592", title: "Design"})
                     ), 
                     React.DOM.a(null, 
-                        React.DOM.img({className: "moveToBooklet " + ((this.props.item.bookletId === "53d3d1021874ea010f76c593") ? "selectedBooklet" : ""), src: "/img/bookletBusiness.png", 'data-quote': this.props.item._id, 'data-booklet': "53d3d1021874ea010f76c593"})
+                        React.DOM.img({className: "moveToBooklet " + ((this.props.item.bookletId === "53d3d1021874ea010f76c593") ? "selectedBooklet" : ""), src: "/img/bookletBusiness.png", 'data-quote': this.props.item._id, 'data-booklet': "53d3d1021874ea010f76c593", title: "Business"})
                     )
                 )
             )
