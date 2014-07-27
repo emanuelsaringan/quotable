@@ -161,8 +161,8 @@ var QuoteLogo = React.createClass({displayName: 'QuoteLogo',
                 ), 
 
                 React.DOM.div(null, 
-                    React.DOM.a({href: "http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=" + this.props.text, target: "_blank"}, 
-                        React.DOM.img({className: "moveToBooklet", src: "/img/btnShareTwitter.png", alt: "Twitter"})
+                    React.DOM.a({href: "http://twitter.com/share?url=" + encodeURIComponent("http://localhost:3000") + "&text=" + encodeURIComponent(this.props.item.text), target: "_blank"}, 
+                        React.DOM.img({className: "shareIcon", src: "/img/btnShareTwitter.png", alt: "Twitter"})
 
                     ), 
                     React.DOM.a({href: "http://www.facebook.com/sharer.php?u=" + encodeURIComponent("http://localhost:3000"), target: "_blank"}, 
