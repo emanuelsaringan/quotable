@@ -1,0 +1,98 @@
+#sideBar, .quoteStream {
+  display: inline-block;
+}
+
+#sideBarBox {
+  height: 100%;
+  width: 250px;
+
+  border: 1px solid rgb(191, 191, 191);
+  border-top: 0px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 100%;
+
+  padding: 0px 0px 0px 0px;
+/*  margin-left: -10px;
+  margin-top: -10px;*/
+}
+
+#logoBox {
+  text-align: center;
+  background-color: rgb(221, 39, 115);
+  padding: 0px;
+}
+
+#logoBox img {
+  width: 200px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.sideBox {
+  padding: 10px 10px;
+  border-bottom: 1px solid rgb(191, 191, 191);
+}
+
+.sideBox img {
+  width:  50px;
+  margin-right: 10px;
+  height: 50px;
+  vertical-align: middle;
+}
+
+#search input {
+  width:  220px;
+  text-align: center;
+  font-size: 100%;
+}
+
+
+
+#canvas {
+  text-align: center;
+}
+
+.quoteStream {
+  width: 600px;
+  vertical-align: top;
+  margin: 0 auto;
+  overflow: hidden;
+    
+}
+
+.quoteBox {
+    
+}
+
+.quoteText {
+    font-family: 'Patua One', cursive;
+    font-size: 175%;
+    padding-left: 5%;
+    margin-bottom: 3%;
+    border-left: 6px solid rgb(221, 39, 115);
+    font-color: rgb(74, 63, 43);  
+}
+
+.quoteTitle {
+    font-family: 'Patua One', cursive;
+    font-size:  120%; 
+}
+
+.quoteTitle a:link, .quoteTime {
+    color:  rgb(89, 89, 89);
+    text-decoration: none;
+}
+
+.quoteTime {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.quoteTitle, .quoteTime {
+    margin-bottom: 2%;
+    text-align: left;
+}
+
+.quoteTime {
+    font-size: 80%;
+}
