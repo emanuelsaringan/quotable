@@ -10,7 +10,7 @@ window.fbAsyncInit = function() {
       FB.ui(
         {
           method: 'share',
-          href: 'https://developers.facebook.com/docs/',
+          href: 'http://emanuelsaringan.github.io/quotable',
         },
         function(response) {
           if (response && !response.error_code) {
