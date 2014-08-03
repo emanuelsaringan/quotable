@@ -7,20 +7,13 @@ window.fbAsyncInit = function() {
 
   $('.fb-share').click(
     function() {
-      FB.ui(
-        {
-          method: 'share',
-          href: 'http://emanuelsaringan.github.io/quotable',
-          caption: 'I just signed up for quotable - the slickest way to highlight and remember content online.'
-        },
-        function(response) {
-          if (response && !response.error_code) {
-            alert('Posting completed.');
-          } else {
-            alert('Error while posting.');
-          }
-        }
-      );
+      FB.ui({
+        method: 'share_open_graph',
+        action_type: 'og.likes',
+        action_properties: JSON.stringify({
+            object:'http://emanuelsaringan.github.io/quotable',
+        })
+      }, function(response){});
     }
   );
 };
