@@ -11,6 +11,7 @@ window.fbAsyncInit = function() {
         {
           method: 'share',
           href: 'http://emanuelsaringan.github.io/quotable',
+          post: false
         },
         function(response) {
           if (response && !response.error_code) {
