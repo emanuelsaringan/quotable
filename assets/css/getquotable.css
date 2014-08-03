@@ -1,0 +1,134 @@
+body, html {
+	font-family: 'Montserrat', sans-serif;
+	height: 100%;
+}
+
+section {
+	height: 100%;
+	overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.navbar, .navbar-collapse {
+	background-color: rgb(221, 39, 115);
+	border-radius: 0;
+	height: 13%;
+	border: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #ffffff;
+	font-size: 100%;
+	font-family: "Varela Round";
+	margin-top: 20px;
+}
+
+.navbar-toggle {
+	margin-top: 25px;
+	margin-bottom: 20px;
+	background-color: white;
+}
+
+/* Section 1 */
+
+.logo {
+	height: 65px;
+	width: 200px;
+}
+
+#home {
+/*	background-color: rgb(221, 39, 115);*/
+	background-image:  url(../images/landingBG.png);
+	background-size: cover;
+	color: white;
+}
+
+.headline h1{
+	font-weight: 700;
+}
+
+.tagline h3 {
+	font-weight: 400;
+}
+
+.btn-beta, .text-beta {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+
+	text-align: center;
+	width: 100%;
+	border: 2px solid white;
+	height: 50px;
+	width: 90%;
+
+	margin: 10px;
+}
+
+.text-beta {
+	color: rgb(100, 100, 100);
+	border: solid 2px rgb(200, 200, 200);
+}
+
+.btn-beta {
+	background-color: rgb(52,180,132);
+}
+
+.btn-beta:hover, .btn-beta:focus, .btn-beta:active {
+	border: 2px solid green;
+	outline: 0;
+}
+
+.copy {
+	margin-top: 15%;
+}
+
+.copy > div, .landing-2 > div {
+	padding-top: 5%;
+}
+
+
+/* Section 2 */
+
+.header {
+	padding-top: 10%;
+	text-align: center;
+	font-size: 150%;
+	color: rgb(100, 100, 100);
+	font-family: "Varela Round";
+}
+
+.feature img {
+	height: 100%;
+	width: 100%;
+}
+
+.feature span {
+	color: rgb(221, 39, 115);
+	font-weight: 700;
+}
+
+.landing-2 {
+  	text-align: center;
+}
+
+p {
+	padding-top: 5px;
+	font-family: "Varela Round";
+}
+
+#how {
+	background-color: rgb(250, 250, 250);
+}
+
+/* Section 3 */
+
+#beta {
+	background-color: rgb(221, 39, 115);
+	color: white;
+	text-align: center;
+}
+
+.call {
+	margin-top: 20%;
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.ico/favicon.ico" type="image/x-icon">
+
+    <title>quotable</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/getquotable.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Patua+One|Varela+Round' rel='stylesheet' type='text/css'>
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img class="logo" src="assets/images/LandingLogo.png">
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#how">HOW IT WORKS</a></li>
+            <li><a href="#beta">JOIN THE BETA</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- LANDING - PAGE 1 -->
+    <section id="home">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 copy">
+            <div class="headline">
+              <span> <h1> The slickest way to highlight and remember content online. </h1></span>
+            </div>
+            <div class="tagline">
+              <span> <h3> Save, curate, and share notable lines across the web. </h3> </span>
+            </div>
+            <div class="signup">
+              <div class="row">
+                <form action="http://forms.brace.io/luigi.dollosa@gmail.com" method="POST">
+                    <div class="col-md-6">
+                      <input class="text-beta" type="email" name="_replyto" placeholder="YOUR EMAIL ADDRESS"/>
+                    </div>
+                    <div class="col-md-6">
+                      <button type="submit" class="btn btn-success btn-beta">JOIN THE BETA!</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANDING - PAGE 2 -->
+
+    <section id="how"> 
+      <div class="header">
+        How does it work?
+      </div>       
+      <div class="container landing-2">
+        <div class="row">
+          <div class="col-md-4 feature">
+              <img src="assets/images/LandingB1.png">
+              <p><h3><span>Capture</span> easily any line of text with the quotable Chrome extension.</h3></p>
+              <p><h4>Focus on your reading, and we will take care of the rest!</h4></p>
+          </div>
+          <div class="col-md-4 feature">
+              <img src="assets/images/LandingB2.png">
+              <p><h3><span>Browse</span> through your saved quotables on your very own stream.</h3></p>
+              <p><h4>Remembering noteworthy lines has never been this enjoyable!</h4></p>
+          </div>
+          <div class="col-md-4 feature">
+              <img src="assets/images/LandingB3.png">
+              <p><h3><span>Curate</span> interests in booklets, and <span>share</span> quotables on Facebook or Twitter</h3></p>
+              <p><h4>Express yourself through quotable!</h4></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANDING - PAGE 3 -->
+    <section id="beta">
+      <div class="container">
+        <div class="row call">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <span> <h1> Join our mailing list for updates on our private beta! </h1> </span>
+            <form action="http://forms.brace.io/luigi.dollosa@gmail.com" method="POST">
+              <input class="text-beta" type="email" name="_replyto" placeholder="YOUR EMAIL | e.g john.doe@example.com"/>
+              <button type="submit" class="btn btn-success btn-beta">SIGN ME UP FOR THE BETA!</button>
+            </form>
+          </div>
+          <div class="col-md-3"></div>
+        </div> 
+      </div>
+    </section>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html,body').animate({
+                scrollTop: target.offset().top
+              }, 500);
+              return false;
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
