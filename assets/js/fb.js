@@ -9,9 +9,12 @@ window.fbAsyncInit = function() {
     function() {
       FB.ui(
         {
-          method: 'share',
-          href: 'http://emanuelsaringan.github.io/quotable',
-          caption: 'I just signed up for quotable - the slickest way to highlight and remember content online.'
+          method: 'feed',
+          name: 'Quotable',
+          link: 'http://emanuelsaringan.github.io/quotable',
+          picture: 'http://fbrell.com/f8.jpg',
+          caption: 'The slickest way to highlight and remember content online',
+          description: 'I just signed up for quotable - the slickest way to highlight and remember content online.'
         },
         function(response) {
           if (response && !response.error_code) {
