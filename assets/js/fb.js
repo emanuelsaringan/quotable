@@ -16,7 +16,7 @@ $('.btn-tweet').click(
   function() {
     var tweetURL = 'http://twitter.com/share';
     tweetURL += '?url=' + encodeURIComponent(URL);
-    tweetURL += '&text=' + encodeURIComponent('I just signed up for quotable - the slickest way to highlight and remember content online. getquotable.io');
+    tweetURL += '&text=' + encodeURIComponent('I just signed up for quotable - the slickest way to highlight and remember content online. ');
 
     window.open(tweetURL, '_blank');
   }
