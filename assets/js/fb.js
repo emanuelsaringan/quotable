@@ -1,11 +1,23 @@
-$('.fb-share').click(
+var URL = 'http://emanuelsaringan.github.io/quotable';
+
+$('.btn-share').click(
   function() {
     var shareURL = 'https://www.facebook.com/dialog/feed';
     shareURL += '?app_id=721191361280674';
-    shareURL += '&caption=' + encodeURIComponent(' just signed up for quotable - the slickest way to highlight and remember content online.');
-    shareURL += '&link=' + encodeURIComponent('http://emanuelsaringan.github.io/quotable');
-    shareURL += '&redirect_uri=' + encodeURIComponent('http://emanuelsaringan.github.io/quotable/thanks.html');
+    shareURL += '&caption=' + encodeURIComponent('I just signed up for quotable - the slickest way to highlight and remember content online.');
+    shareURL += '&link=' + encodeURIComponent(URL);
+    shareURL += '&redirect_uri=' + encodeURIComponent(URL + '/thanks.html');
 
     window.open(shareURL, '_blank');
+  }
+);
+
+$('.btn-tweet').click(
+  function() {
+    var tweetURL = 'http://twitter.com/share';
+    tweetURL += '?url=' + encodeURIComponent(URL);
+    tweetURL += '&text=' + encodeURIComponent('I just signed up for quotable - the slickest way to highlight and remember content online. getquotable.io');
+
+    window.open(tweetURL, '_blank');
   }
 );
