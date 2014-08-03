@@ -1,4 +1,4 @@
-var URL = 'http://emanuelsaringan.github.io/quotable';
+var URL = 'http://getquotable.io';
 
 $('.btn-share').click(
   function() {

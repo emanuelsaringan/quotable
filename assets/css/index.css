@@ -46,7 +46,7 @@ button {
 	color: rgb(55,55,55);
 }
 
-.tagline h3 {
+.tagline h3, .headline h2 {
 	font-family: "Varela Round";
 	color: rgb(120,120,120);
 }
@@ -81,6 +81,10 @@ button {
 
 .copy > div, .landing-2 > div {
 	padding-top: 5%;
+}
+
+.thanks {
+	text-align: center;
 }
 
 
