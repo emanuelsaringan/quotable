@@ -8,11 +8,8 @@ window.fbAsyncInit = function() {
   $('.fb-share').click(
     function() {
       FB.ui({
-        method: 'share_open_graph',
-        action_type: 'og.likes',
-        action_properties: JSON.stringify({
-            object:'http://emanuelsaringan.github.io/quotable',
-        })
+        method: 'share',
+        href: 'http://emanuelsaringan.github.io/quotable',
       }, function(response){});
     }
   );
